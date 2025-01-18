@@ -1,0 +1,5 @@
+---
+releases:
+  - name: simple
+    chart: ./simple-helm
+    installed: false

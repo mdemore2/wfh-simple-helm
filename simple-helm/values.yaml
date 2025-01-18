@@ -7,9 +7,9 @@ replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: mdemore2/simple-flask
+  repository: mdemore2/simple-flask:latest
   # This sets the pull policy for images.
-  pullPolicy: IfNotPresent
+  pullPolicy: Always #IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
@@ -90,14 +90,14 @@ resources:
   #   memory: 128Mi
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
-#livenessProbe:
-#  httpGet:
-#    path: /
-#    port: 9001
-#readinessProbe:
-#  httpGet:
-#    path: /
-#    port: 9001
+livenessProbe:
+  httpGet:
+    path: /
+    port: 9001
+readinessProbe:
+  httpGet:
+    path: /
+    port: 9001
 
 #This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
 autoscaling:
