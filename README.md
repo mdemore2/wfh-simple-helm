@@ -9,7 +9,7 @@
 - [x] secrets
 - [x] env vars
 - [x] volumes
-- [] ingresses
+- [x] ingresses
 
 ### Docker Coommands
 
