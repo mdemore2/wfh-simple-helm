@@ -31,3 +31,4 @@
 - `kubectl get secrets`
 - `kubectl describe pods {my-name}`
 - `kubectl apply -f secrets.yaml`
+- `kubectl exec -it {pod-naame} -- /bin/bash`

@@ -98,11 +98,11 @@ resources:
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 livenessProbe:
   httpGet:
-    path: /
+    path: /health
     port: 9001
 readinessProbe:
   httpGet:
-    path: /
+    path: /health
     port: 9001
 
 #This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
@@ -114,14 +114,19 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 # Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
+volumes:
+  - name: local
+    hostPath:
+      path: /usr/share/local-volume
+
 #   secret:
 #     secretName: mysecret
 #     optional: false
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
+volumeMounts:
+  - name: local
+    mountPath: /data
 # - name: foo
 #   mountPath: "/etc/foo"
 #   readOnly: true
