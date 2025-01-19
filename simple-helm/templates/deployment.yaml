@@ -42,6 +42,10 @@ spec:
               secretKeyRef:
                 name: my-secret
                 key: password
+          {{- range $name, $value := .Values.envVars }}
+          - name: {{$name}}
+            value: {{$value}}
+          {{- end}}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}

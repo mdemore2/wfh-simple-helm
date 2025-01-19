@@ -21,5 +21,10 @@ def secret():
     return os.environ['MY_SECRET'], 200
 
 
+@app.route('/env', methods=['GET'])
+def env():
+    return jsonify(dict(os.environ)), 200
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9001)

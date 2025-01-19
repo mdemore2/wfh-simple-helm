@@ -126,6 +126,10 @@ volumeMounts: []
 #   mountPath: "/etc/foo"
 #   readOnly: true
 
+envVars:
+  AWS_Region: "us-1"
+  TEST: "thisisatest"
+
 nodeSelector: {}
 
 tolerations: []
